@@ -56,7 +56,8 @@ const model = {
         },
     },
     data: {
-        users: {
+        users:[ 
+        {
             userID: 0,
             groupID: [0, 1],
             classID: 0,
@@ -64,7 +65,7 @@ const model = {
             password: 'admin',
             isAdmin: true,
         },
-
+        ],
         assignmentPage: {
             assignmentID: 0,
             title: 'Growth Mindset',
