@@ -6,32 +6,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Core utilities -->
+<body onload= "updateView()" >
+    <div id="app">
+    </div>
     <script src="js/core/model.js"></script>
-
-    <!-- Feature controllers and views (load controllers before their views if they reference them) -->
     <script src="js/login/loginController.js"></script>
     <script src="js/login/loginView.js"></script>
-
     <script src="js/users/userController.js"></script>
     <script src="js/users/userView.js"></script>
-
     <script src="js/groups/groupController.js"></script>
     <script src="js/groups/groupView.js"></script>
-
     <script src="js/dashboard/dashboardController.js"></script>
     <script src="js/dashboard/dashboardView.js"></script>
-
     <script src="js/chat/chatController.js"></script>
     <script src="js/chat/chatView.js"></script>
-
     <script src="js/assignments/assignmentController.js"></script>
     <script src="js/assignments/assignmentView.js"></script>
-
-    <!-- Top-level or legacy controllers -->
-    <script src="controller/messageController.js"></script>
     <script src="messages/messageView.js"></script>
-
+    <script src="app.js"></script>
 </body>
 </html>

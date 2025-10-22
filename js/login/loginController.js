@@ -6,51 +6,19 @@ function passwordLogin(inputPassword) {
 };
 
 // A simple model to store login data
-const model = {
-    loginpage: {
-        username: '',
-        password: ''
-    }
-};
 
 function loginCheck() {
-    let popupMessage = "";
-    for (let i = 0; i < model.data.users.length; i++) {
-        if
-            (
-            model.data.users[i].username == model.input.loginPage.username &&
-            model.data.users[i].password == model.input.loginPage.password
-        ) {
-            popupMessage = "Riktig brukernavn og passord"
-        } else if (
-            model.data.users[i].username != model.input.loginPage.username &&
-            model.data.users[i].password != model.input.loginPage.password
+    const users = model.data.users;
+    const { username, password } = model.input.loginPage;
 
-        ) {
-            popupMessage = "Feil brukernavn eller passord"
-        }
-    }
-};
-// Called when the user types in the username field
-function usernameLogin(value) {
-    model.input.loginPage.username = value;
-}
+    let foundUser = users.find(u => u.username === username && u.password === password);
 
-// Called when the user clicks the login button
-function checkLoginInfo() {
-    const { username, password } = model.loginpage;
-
-    if (!username || !password) {
-        alert("Please enter both username and password.");
-        return;
-    }
-
-    // Simulate a basic login check
-    if (username === "admin" && password === "1234") {
-        alert("Login successful!");
-        // You could load another view or redirect here
-        // e.g. mainView() or window.location = 'dashboard.html';
+    if (foundUser) {
+        alert("✅ Login successful!");
+        model.app.currentUserId = foundUser.userID;
+        model.app.currentPage = 'dashboard';
+        updateView(); // 👈 this is how navigation happens
     } else {
-        alert("Invalid username or password.");
+        alert("❌ Invalid username or password");
     }
 }
