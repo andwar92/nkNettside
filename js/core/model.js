@@ -1,5 +1,8 @@
 const model = {
     app: {
+        currentPage: 'Dashboard',
+        currentUserId: 0,
+        previousPage: [],
 
     },
     input: {
