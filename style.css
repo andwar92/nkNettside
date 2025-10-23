@@ -1,0 +1,46 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+display: flex;
+justify-content: center;
+align-items: center;  
+background-color: rgb(250, 250, 250);
+}
+.loginContainer {
+border: solid, 1px;
+border-radius: 20px;
+border-color: rgb(206, 81, 36);
+background-color: rgb(245, 101, 49);
+box-shadow:  0 8px 10px rgba(0,0,0,0.2);        
+padding: 1.5rem;
+};
+
+header {
+    position: fixed;
+    top: 1%;
+    left: 1%;
+}
+
+
+
+/* body {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  background-color: black;
+}
+
+
+
+.container {
+  margin-top: 50px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-items: center;
+  justify-self: center;
+  align-items: center;
+  align-content: flex-start;
+} */

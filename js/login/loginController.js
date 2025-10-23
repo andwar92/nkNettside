@@ -11,7 +11,7 @@ function loginCheck() {
     const users = model.data.users;
     const { username, password } = model.input.loginPage;
 
-    let foundUser = users.find(u => u.username === username && u.password === password);
+    let foundUser = users.find(element => element.username === username && element.password === password);
 
     if (foundUser) {
         alert("✅ Login successful!");
