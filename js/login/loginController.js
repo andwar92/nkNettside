@@ -17,7 +17,7 @@ function loginCheck() {
         alert("Login successful!");
         model.app.currentUserId = foundUser.userID;
         model.app.currentPage = 'dashboard';
-        updateView(); // this is how navigation happens
+        updateView('dashboard'); // this is how navigation happens
     } else {
         alert("Invalid username or password");
     }
