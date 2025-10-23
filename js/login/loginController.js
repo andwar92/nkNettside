@@ -14,11 +14,11 @@ function loginCheck() {
     let foundUser = users.find(element => element.username === username && element.password === password);
 
     if (foundUser) {
-        alert("✅ Login successful!");
+        alert("Login successful!");
         model.app.currentUserId = foundUser.userID;
         model.app.currentPage = 'dashboard';
-        updateView(); // 👈 this is how navigation happens
+        updateView(); // this is how navigation happens
     } else {
-        alert("❌ Invalid username or password");
+        alert("Invalid username or password");
     }
 }

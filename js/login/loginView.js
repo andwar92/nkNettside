@@ -1,6 +1,6 @@
 function loginView() {
     let loginHTML = /*HTML*/`
-    <header>
+    <header class="logo">
         <img src="img/logo.png">
     </header>
     <div class="loginContainer">

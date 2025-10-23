@@ -17,6 +17,16 @@ box-shadow:  0 8px 10px rgba(0,0,0,0.2);
 padding: 1.5rem;
 };
 
+.logo {
+    width: 1px;
+    height: 5px;
+}
+
+.logo img {
+    max-width: 216px; 
+    max-height:100px;
+}
+
 header {
     position: fixed;
     top: 1%;
