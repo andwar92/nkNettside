@@ -1,44 +1,121 @@
-html, body {
-  height: 100%;
-  margin: 0;
-}
+html,
 body {
-display: flex;
-justify-content: center;
-align-items: center;  
-background-color: rgb(250, 250, 250);
+    height: 100vh;
+    margin: 0;
 }
-.loginContainer {
-border: solid, 1px;
-border-radius: 20px;
-border-color: rgb(206, 81, 36);
-background-color: rgb(245, 101, 49);
-box-shadow:  0 8px 10px rgba(0,0,0,0.2);        
-padding: 1.5rem;
-};
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* header øverst, resten under */
+    min-height: 100vh;
+    background-color: white;
+}
+
+
+/* header tar ikke plass i flex-vekst */
+header.headerbox {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.sidebar {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.loginbox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    width: 100%;
+    /* valgfritt */
+    pointer-events: auto;
+}
+
+
+/* selve login-kortet */
+.logincontainer {
+    border: 1px solid rgba(245, 101, 49, 1);
+    border-radius: 20px;
+    background-color: rgb(245, 101, 49);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    width: fit-content;
+}
 
 .logo {
+    max-width: 200px;
+    max-height: 100px;
+}
+
+.logocontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.menu-icon {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background: rgb(245, 101, 49);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: rgb(206, 81, 36);
+}
+
+.headerbox img {
+    max-width: 216px;
+    max-height: 100px;
+}
+
+/* .headerbox {
     width: 1px;
     height: 5px;
-}
+    } */
 
-.logo img {
-    max-width: 216px; 
-    max-height:100px;
-}
-
-header {
-    position: fixed;
-    top: 1%;
-    left: 1%;
-}
+/* header {
+        position: fixed;
+        top: 1%;
+        left: 1%;
+        } */
 
 
 
 /* body {
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            height: 100%;
   background-color: black;
 }
 

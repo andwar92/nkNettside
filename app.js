@@ -1,21 +1,34 @@
-function updateView(page){
-    model.app.currentPage = page;
-    
-    //let page = model.app.currentPage;
+function updateView() {
+
+    let page = model.app.currentPage
+
     let currentPage = '';
-    
-    switch(page) {
-        case 'dashboard':
+
+    switch (page) {
+        case 'dashboardView':
+            model.app.previousPage.push('dashboardView')
             currentPage = dashboardView();
             break;
         case 'loginView':
             currentPage = loginView();
             break;
-        }
-    
-    document.getElementById('app').innerHTML = `
-    ${currentPage}
-    `;
+    }
+
+    document.getElementById('app').innerHTML = layoutView(currentPage);
+}
+function setPage(nameOfPage) {
+    model.app.previousPage.push(nameOfPage)
+    model.app.currentPage = nameOfPage;
+    updateView();
+}
+
+function goToPreviousPage(delta) {
+    if (delta == -1 && model.app.previousPage.length > 0) {
+        model.app.previousPage.pop();
+        model.app.currentPage = model.app.previousPage.pop();
+        setPage(model.app.currentPage)
+    }
+    updateView();
 }
 
 
