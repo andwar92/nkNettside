@@ -5,7 +5,7 @@ function layoutView(contentHTML) {
             <img style="max-height:120px;" src="img/logo.png">
         </header>
         ${loginView()}`;
-    } 
+    }
     else {
         return /*HTML*/`
 
@@ -18,13 +18,22 @@ function layoutView(contentHTML) {
             <button class="logout-btn" onclick="setPage('loginView')">Logout</button>
         </header>
 
-        <main class="main-content">
-            ${contentHTML}
-        </main>
 
+        <div id="sidebar" class="sidebar">
+            <a href="#">Hjem</a>
+            <a href="#">Oppgaver</a>
+            <a href="#">Chat</a>
+            <a href="#">Kalender</a>
+        </div>
+
+        <main class="main-content">
+        ${contentHTML}
+        </main>
+        
         <footer class="main-footer">
             <p>&copy; 2025 My App</p>
         </footer>
+
     </div>
     `;
     }

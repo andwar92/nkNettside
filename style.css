@@ -10,6 +10,7 @@ body {
     /* header øverst, resten under */
     min-height: 100vh;
     background-color: white;
+    margin: 0;
 }
 
 
@@ -29,12 +30,12 @@ header.headerbox {
     box-sizing: border-box;
 }
 
-.sidebar {
+/* .sidebar {
     box-sizing: border-box;
     padding: 10px 20px;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+} */
 
 
 .loginbox {
@@ -98,6 +99,73 @@ header.headerbox {
     max-width: 216px;
     max-height: 100px;
 }
+
+/*Sidebar*/
+.open-btn {
+    font-weight: bold;
+    margin-left: 1%;
+    cursor: pointer;
+    background-color: rgba(245, 101, 49, 1);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+}
+
+.open-btn:hover {
+    background: rgb(206, 81, 36);
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 15;
+    left: 0;
+    background-color: rgba(245, 101, 49, 1);
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    box-shadow: 3px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+
+}
+
+.sidebar.active {
+    width: 200px;
+
+}
+
+.sidebar a:hover {
+    background-color: rgb(206, 81, 36);
+}
+
+.main-content {
+    padding: 16px;
+    transition: margin-left 0.3s;
+}
+
+.main-content.shift {
+    margin-left: 200px;
+}
+
+.main-footer {
+    padding: 16px;
+    transition: margin-left 0.3s;
+}
+
+.main-footer.shift {
+    margin-left: 200px;
+}
+
+
 
 /* .headerbox {
     width: 1px;

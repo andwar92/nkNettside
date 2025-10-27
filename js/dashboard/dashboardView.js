@@ -5,20 +5,3 @@ function dashboardView() {
     `;
    return dashboardHTML;
 }
-
-
-function sidebarView() {
-   let sidebarHTML = /*HTML*/`
-   <div class="sidebar">
-   <p>Hjem</p><br>   
-   <p>Opggaver</p><br>   
-   <p>Chat</p><br>   
-   </div>
-   `;
-   return sidebarHTML;
-};
-
-function sidebarController() {
-   let sidebar = '';
-
-}
