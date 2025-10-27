@@ -12,6 +12,10 @@ function updateView() {
         case 'loginView':
             currentPage = loginView();
             break;
+        case 'assignmentView':
+            currentPage = assignmentView();
+            break;
+            
     }
 
     document.getElementById('app').innerHTML = layoutView(currentPage);

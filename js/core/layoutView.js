@@ -20,8 +20,8 @@ function layoutView(contentHTML) {
 
 
         <div id="sidebar" class="sidebar">
-            <a href="#">Hjem</a>
-            <a href="#">Oppgaver</a>
+            <a onclick="setPage('dashboardView')" href="#">Hjem</a>
+            <a onclick="setPage('assignmentView')"href="#">Oppgaver</a>
             <a href="#">Chat</a>
             <a href="#">Kalender</a>
         </div>

@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     /* header øverst, resten under */
     min-height: 100vh;
-    background-color: white;
+    background-color: #fff7f3;
     margin: 0;
 }
 
@@ -25,8 +25,8 @@ header.headerbox {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: #fff7f3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
 }
 
@@ -48,7 +48,6 @@ header.headerbox {
     align-items: center;
     padding: 16px;
     width: 100%;
-    /* valgfritt */
     pointer-events: auto;
 }
 
@@ -115,6 +114,7 @@ header.headerbox {
 .open-btn:hover {
     background: rgb(206, 81, 36);
 }
+
 .sidebar {
     height: 100%;
     width: 0;
@@ -157,15 +157,60 @@ header.headerbox {
 }
 
 .main-footer {
-    padding: 16px;
-    transition: margin-left 0.3s;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff7f3;
+    color: #222;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px 20px;
+
 }
+
 
 .main-footer.shift {
     margin-left: 200px;
 }
 
+/*Container bokser*/
 
+.container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 40px;
+}
+
+.box {
+    font-size: 1.5rem;
+    position: relative;
+    width: 50%;
+    height: 20em;
+    background: rgba(245, 101, 49, 1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box:hover {
+    background: rgb(206, 81, 36);
+}
+
+.tagBox {
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    background: white;
+    color: rgba(245, 101, 49, 1);
+    border-radius: 12px;
+    padding: 4px 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
 
 /* .headerbox {
     width: 1px;
