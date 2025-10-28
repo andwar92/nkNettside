@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: 'dashboardView',
+        currentPage: 'assignmentView',
         currentUserId: 0,
         previousPage: [],
 

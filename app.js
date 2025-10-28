@@ -15,6 +15,9 @@ function updateView() {
         case 'assignmentView':
             currentPage = assignmentView();
             break;
+        case 'chatView':
+            currentPage = chatView();
+            break;
             
     }
 

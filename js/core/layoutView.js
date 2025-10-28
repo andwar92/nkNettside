@@ -22,7 +22,7 @@ function layoutView(contentHTML) {
         <div id="sidebar" class="sidebar">
             <a onclick="setPage('dashboardView')" href="#">Hjem</a>
             <a onclick="setPage('assignmentView')"href="#">Oppgaver</a>
-            <a href="#">Chat</a>
+            <a onclick="setPage('chatView')">Chat</a>
             <a href="#">Kalender</a>
         </div>
 
@@ -31,7 +31,7 @@ function layoutView(contentHTML) {
         </main>
         
         <footer class="main-footer">
-            <p>&copy; 2025 My App</p>
+        <p>&copy; 2025 My App</p>
         </footer>
 
     </div>

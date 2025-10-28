@@ -2,6 +2,8 @@ html,
 body {
     height: 100vh;
     margin: 0;
+    overflow-x: hidden;
+    /* prevent sideways scroll */
 }
 
 body {
@@ -203,14 +205,93 @@ header.headerbox {
     position: absolute;
     bottom: -15px;
     right: 20px;
-    background: white;
-    color: rgba(245, 101, 49, 1);
+    background: rgb(175, 231, 181);
+    color: rgb(55, 140, 3);
     border-radius: 12px;
     padding: 4px 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     font-weight: bold;
     font-size: 0.9rem;
 }
+
+.bigInput {
+    resize: none;
+    overflow-y: hidden;
+    min-height: 38px;
+    max-height: 200px;
+    box-sizing: border-box;
+}
+
+/*Chat*/
+.chatContainer {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    height: calc(100vh - 100px);
+    border-top: 1px solid #000;
+    background: gray;
+}
+
+.friendList {
+    display: flex;
+    flex-direction: column;
+    background: rgba(245, 101, 49, 1);
+}
+
+.friendList button {
+    font-weight: bold;
+    margin-left: 1%;
+    cursor: pointer;
+    background-color: rgba(245, 101, 49, 1);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+}
+
+.chat {
+    background: blue;
+}
+
+.chatInput {}
+
+.chatInput textarea {
+    flex: 1;
+    height: 60px;
+    padding: 8px;
+    font-size: 14px;
+    resize: none;
+    border: 2px solid black;
+}
+
+
+.autoExpand {
+    width: 300px;
+    min-height: 38px;
+    max-height: 200px;
+    resize: none;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    padding: 8px;
+    transition: height 0.1s ease;
+}
+
+.textbox:focus {
+    outline: none;
+    border-color: rgba(9, 105, 218, .6);
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, .15);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* .headerbox {
     width: 1px;
@@ -226,7 +307,7 @@ header.headerbox {
 
 
 /* body {
-            width: 100%;
+          width: 100%;
             margin: 0 auto;
             height: 100%;
   background-color: black;
