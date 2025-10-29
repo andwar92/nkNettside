@@ -18,10 +18,11 @@ function updateView() {
         case 'chatView':
             currentPage = chatView();
             break;
-            
+
     }
 
     document.getElementById('app').innerHTML = layoutView(currentPage);
+    initAssignmentInputs()
 }
 function setPage(nameOfPage) {
     model.app.previousPage.push(nameOfPage)

@@ -31,7 +31,13 @@ header.headerbox {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
 }
+.assignmentContainer {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    width: 59%;
 
+}
 /* .sidebar {
     box-sizing: border-box;
     padding: 10px 20px;
@@ -159,14 +165,14 @@ header.headerbox {
 }
 
 .main-footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: #fff7f3;
     color: #222;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px 20px;
+    padding:0px 15px 20px;
 
 }
 
@@ -255,12 +261,11 @@ header.headerbox {
 .chatInput {}
 
 .chatInput textarea {
-    flex: 1;
-    height: 60px;
-    padding: 8px;
-    font-size: 14px;
-    resize: none;
-    border: 2px solid black;
+  min-height: 38px;
+  max-height: 200px;
+  resize: none;
+  overflow-y: hidden;
+  transition: height 0.1s ease;
 }
 
 
