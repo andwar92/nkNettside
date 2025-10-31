@@ -8,12 +8,14 @@ function chatView() {
             <button>Student 2</button>
             <button>Student 3</button>
         </div>
-
+        <div class="chat">1233333</div>
+    </div>
         <div class="chat">1233333</div>
         <div class="chatInput">
             <textarea placeholder="Skriv melding..."></textarea>
         </div>
-    </div>
+        <button>Send</button>
+
     `;
     return chatHTML;
 };

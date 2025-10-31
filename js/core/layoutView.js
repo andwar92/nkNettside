@@ -23,7 +23,7 @@ function layoutView(contentHTML) {
             <a onclick="setPage('dashboardView')" href="#">Hjem</a>
             <a onclick="setPage('assignmentView')"href="#">Oppgaver</a>
             <a onclick="setPage('chatView')">Chat</a>
-            <a href="#">Kalender</a>
+            <a onclick="setPage('calendarView')" href="#">Kalender</a>
         </div>
 
         <main class="main-content">

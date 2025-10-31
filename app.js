@@ -18,6 +18,9 @@ function updateView() {
         case 'chatView':
             currentPage = chatView();
             break;
+        case 'calendarView':
+            currentPage = calendarView();
+            break;
 
     }
 
