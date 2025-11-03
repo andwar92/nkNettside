@@ -29,6 +29,26 @@ function layoutView(contentHTML) {
         <main class="main-content">
         ${contentHTML}
         </main>
+
+        <!-- popup chat -->
+        <button id="toggleChat">💬</button>
+
+        <div id="chatPopup">
+            <div id="chatHeader">
+            <span id="chatTitle">Chat</span>
+            <button id="closeBtn" style="background:none;border:none;color:white;font-size:18px;cursor:pointer;">×</button>
+            </div>
+
+            <select id="userSelect"></select>
+            <button id="newGroupBtn">+ Ny gruppe</button>
+
+            <div id="messages"></div>
+
+            <div id="inputArea">
+            <input id="messageInput" placeholder="Skriv melding..." />
+            <button id="sendBtn">Send</button>
+            </div>
+        </div>
         
         <footer class="main-footer">
         <p>&copy; 2025 My App</p>

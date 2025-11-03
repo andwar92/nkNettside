@@ -32,6 +32,13 @@ header.headerbox {
     box-sizing: border-box;
 }
 
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* alltid minst hele høyden på vinduet */
+}
+
 /* .sidebar {
     box-sizing: border-box;
     padding: 10px 20px;
@@ -92,8 +99,27 @@ header.headerbox {
     cursor: pointer;
 }
 
+.publish-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 20px;
+    padding: 10px 10px;
+    background: #f44e00;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .logout-btn:hover {
     background: rgb(187, 69, 25);
+}
+
+.publish-btn:hover {
+    background: rgb(71, 95, 230);
 }
 
 .headerbox img {
@@ -121,7 +147,7 @@ header.headerbox {
     height: 100%;
     width: 0;
     position: fixed;
-    top: 15;
+    top: 150px;
     left: 0;
     background-color: #f44e00;
     overflow-x: hidden;
@@ -150,6 +176,7 @@ header.headerbox {
 }
 
 .main-content {
+    flex: 1;
     padding: 16px;
     transition: margin-left 0.3s;
 }
@@ -159,19 +186,20 @@ header.headerbox {
 }
 
 .main-footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  background-color: #fff7f3;
-  color: #222;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-  padding: 0px 15px 20px;
+    height: 30px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff7f3;
+    color: #222;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+    padding: 0px 15px 20px;
 }
 
 
 .main-footer.shift {
     margin-left: 200px;
-    transition:0.3s;
+    transition: 0.3s;
 }
 
 /*Container bokser*/
@@ -186,18 +214,27 @@ header.headerbox {
 }
 
 .assignmentContainer {
-    color: white;
-    gap: 20px;
     display: grid;
     grid-template-columns: 1fr auto auto;
-
-
+    align-items: start;
+    /* 👈 viktig */
+    gap: 10px;
 }
 
 .box {
     font-size: 1.5rem;
     position: relative;
-    max-width: 500px;
+    width: 50%;
+    height: 20em;
+    background: #f44e00;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+.card {
+    font-size: 1.5rem;
+    position: relative;
+    width: 50%;
     height: 20em;
     background: #f44e00;
     border-radius: 12px;
@@ -206,7 +243,7 @@ header.headerbox {
 }
 
 .box:hover {
-    background:  rgb(187, 69, 25);
+    background: rgb(187, 69, 25);
 }
 
 .gruppebox {
@@ -224,12 +261,25 @@ header.headerbox {
 
 .tagBox {
     position: absolute;
-    bottom: -15px;
-    right: 20px;
+    bottom: 5px;
+    left: 20px;
     background: rgb(255, 255, 255);
     color: rgb(129, 124, 124);
     border-radius: 12px;
-    padding: 4px 12px;
+    padding: 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.tag-box {
+    position: absolute;
+    bottom: 5px;
+    right: 100px;
+    background: rgb(255, 255, 255);
+    color: rgb(129, 124, 124);
+    border-radius: 12px;
+    padding: 10px 1px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     font-weight: bold;
     font-size: 0.9rem;
@@ -243,8 +293,134 @@ header.headerbox {
     box-sizing: border-box;
 }
 
+/*Pop up chat*/
+#toggleChat {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    background: #f44e00;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#chatPopup {
+    position: fixed;
+    bottom: 130px;
+    right: 60px;
+    width: 340px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+#chatHeader {
+    background: #f44e00;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#userSelect {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 6px;
+    font-size: 14px;
+    position: sticky;
+    top: 42px;
+    z-index: 9;
+    background: white;
+}
+
+#newGroupBtn {
+    background: #f44e00;
+    color: white;
+    border: none;
+    padding: 6px 8px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 8px;
+    align-self: flex-end;
+}
+
+#messages {
+    flex: 1;
+    min-height: 200px;
+    padding: 10px;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.msg {
+    margin: 6px 0;
+    padding: 8px 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.me {
+    background: #f5dfd4;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.other {
+    background: #eee;
+    align-self: flex-start;
+}
+
+#inputArea {
+    display: flex;
+    border-top: 1px solid #ccc;
+    position: sticky;
+    bottom: 0;
+    background: white;
+}
+
+#messageInput {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    outline: none;
+}
+
+#sendBtn {
+    border: none;
+    background: #f44e00;
+    color: white;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 /*Chat*/
-.chatContainer {
+/* .chatContainer {
     display: grid;
     grid-template-columns: 200px auto;
     height: calc(100vh - 100px);
@@ -290,19 +466,18 @@ header.headerbox {
     font-size: 14px;
     resize: none;
     border-radius: 12px;
-}
+} */
 
 
-.autoExpand {
-    width: 300px;
-    min-height: 40px;
-    max-height: 200px;
+.text-style {
+    width: 400px;
+    height: 450px;
     resize: none;
     overflow-y: hidden;
     box-sizing: border-box;
     font-family: sans-serif;
     padding: 8px;
-    transition: height 0.1s ease;
+    transition: height 0.6s ease;
 }
 
 .textbox:focus {

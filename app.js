@@ -25,7 +25,7 @@ function updateView() {
     }
 
     document.getElementById('app').innerHTML = layoutView(currentPage);
-    initAssignmentInputs()
+    initChat();
 }
 function setPage(nameOfPage) {
     model.app.previousPage.push(nameOfPage)
@@ -41,6 +41,7 @@ function goToPreviousPage(delta) {
     }
     updateView();
 }
+
 
 
 
