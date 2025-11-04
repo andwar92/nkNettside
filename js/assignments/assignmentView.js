@@ -1,30 +1,61 @@
 function assignmentView() {
   let assignmentHTML = /*HTML*/`
-<div class="container">
-  <div class="card">
-    <header><h1>Ny oppgave</h1></header>
+  <div class="wrap">
+    <header>
+      <h1>Ny oppgave</h1>
+      <div class="status" id="statusText">—</div>
+    </header>
+
+    <div class="card">
+      <!-- Toppvalg: Tag/Subtag -->
       <div class="row">
         <div class="field">
-          <select id="assignmentTagSelect" class="tagBox" onchange="updateTagStyle()">Psykologisk trygghet
-            <option value="velgTag">Velg en tag</option>
-            <option value="growthMindset">Growth Mindset</option>
+          <label for="tagSelect">Emne</label>
+          <select id="assignmentTagSelect" onchange="updateTagStyle()" required>
+            <option value="" disabled selected>Velg emne…</option>
+            <option value="growth-mindset">Growth Mindset</option>
             <option value="psykologiskTrygghet">Psykologisk trygghet</option>
             <option value="learning">Læring</option>
             <option value="locusOfControl">Locus of Control</option>
             <option value="grit">GRIT</option>
           </select>
-          <select class="tag-box" value="">
-            <option value="">Velg gruppe</option>
-            <option value="">Alle Grupper</option>
-            <option value="">Fagskolen Intro</option>
-            <option value="">Start IT</option>
-            <option value="">Frontend</option>
+        </div>
+        <div class="field">
+          <label for="subtagSelect">Subtag </label>
+          <select id="assignmentSubtagSelect" disabled>
+            <option value="" selected>Velg subtag…</option>
           </select>
-          <button class="publish-btn">Publiser</button>
+        </div>
+      </div>
+
+      <!-- Tittel og tekst -->
+      <div class="field">
+        <label for="titleInput">Tittel</label>
+        <input id="titleInput" type="text" placeholder="Kort, tydelig tittel" required />
+      </div>
+
+      <div class="field">
+        <label for="bodyInput">Oppgave</label>
+        <textarea id="bodyInput" rows="10" placeholder="Skriv oppgaven her…" required></textarea>
+        <div class="hint">Tips: Bruk punktlister, del opp steg, og legg ved lenker.</div>
+      </div>
+
+      <div class="sep"></div>
+
+      <!-- Grupper -->
+      <div class="field">
+        <label>Tilgang (grupper)</label>
+        <div class="group-grid" id="groupGrid"></div>
+      </div>
+
+      <!-- Handlinger -->
+      <div class="actions">
+        <button type="button" id="saveDraftBtn">Lagre kladd</button>
+        <button type="button" class="primary" id="publishBtn">Publiser</button>
       </div>
     </div>
   </div>
-</div>
+
     `;
   return assignmentHTML;
 };
