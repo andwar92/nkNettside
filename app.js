@@ -25,6 +25,10 @@ function updateView() {
     }
 
     document.getElementById('app').innerHTML = layoutView(currentPage);
+      if (page === 'assignmentView') {
+        titleTag();
+    }
+
     initChat();
 }
 function setPage(nameOfPage) {

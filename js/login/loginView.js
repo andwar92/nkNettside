@@ -1,16 +1,22 @@
 function loginView() {
     let loginHTML = /*HTML*/`
     <div class="loginbox">
-        
-        <div class="logincontainer">
-        <h2 style="text-align: center; color: white;"> Login </h2>
-            <form>
-                <input type="text" id="username" placeholder="Username" oninput="usernameLogin(this.value)" />
-                <input type="password" id="password" placeholder="Password" oninput="passwordLogin(this.value)" />
-                <button id="loginButton" type="submit" onclick="loginCheck(); return false;">Login</button>
+    <h2 class="loggin-title"> Logg inn </h2>
+    <form>
+            <label class="label required">E-Post</label>
+            <input class="loginn-box" type="text" id="username" oninput="usernameLogin(this.value)" required/><br>
+            <label class="label required">Passord</label>
+            <input  class="loginn-box"type="password" id="password" oninput="passwordLogin(this.value)" />
+            <div class="remember-row">
+                <input type="checkbox" id="remember" class="remember-checkbox" />
+                <label for="remember" class="remember-label">Husk meg</label>
+                <button class="loginn-btn"id="loginButton" type="submit" onclick="loginCheck(); return false;">Login</button>
+            </div>
             </form>
-        </div>
-    </div>
+            <div class="glemt-passord">
+            <a href="" target="_blank" class="forgot-password">Glemt passord?</a>
+            </div>
+            </div>
     `;
     return loginHTML;
 }

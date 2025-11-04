@@ -56,15 +56,15 @@ const model = {
         },
     },
     data: {
-        users:[ 
-        {
-            userID: 0,
-            groupID: [0, 1],
-            classID: 0,
-            username: 'admin',
-            password: 'admin',
-            isAdmin: true,
-        },
+        users: [
+            {
+                userID: 0,
+                groupID: [0, 1],
+                classID: 0,
+                username: 'admin',
+                password: 'admin',
+                isAdmin: true,
+            },
         ],
         assignmentPage: {
             assignmentID: 0,
@@ -96,10 +96,36 @@ const model = {
             date: '2025-10-19 10:00',
             isRead: false,
         },
-        groups: {
+        groups: [
+            {
             groupID: 0,
             groupName: 'Studentgruppe 1',
             members: [0, 1, 2],
-        },
+            },
+            {
+            groupID: 1,
+            groupName: 'Start IT',
+            members: [0, 1, 2],
+            },
+            {
+            groupID: 2,
+            groupName: 'Frontend',
+            members: [0, 1, 2],
+            },
+            {
+            groupID: 3,
+            groupName: 'Fagskolen Intro',
+            members: [0, 1, 2],
+            },
+        
+        ],
+        keyCompetences: [
+            { value: "growth-mindset", label: "Growth Mindset" },
+            { value: "psykologiskTrygghet", label: "Psykologisk trygghet" },
+            { value: "learning", label: "Læring" },
+            { value: "locusOfControl", label: "Locus of Control" },
+            { value: "grit", label: "GRIT" }
+        ],
+
     }
 }

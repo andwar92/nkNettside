@@ -1,62 +1,56 @@
 function assignmentView() {
   let assignmentHTML = /*HTML*/`
-  <div class="wrap">
-    <header>
-      <h1>Ny oppgave</h1>
-      <div class="status" id="statusText">—</div>
-    </header>
-
-    <div class="card">
+  <div class="assignment-page">
+  
+  <div class="card">
+  <header><h1 class="header-box">Ny oppgave</h1></header>
       <!-- Toppvalg: Tag/Subtag -->
       <div class="row">
         <div class="field">
-          <label for="tagSelect">Emne</label>
-          <select id="assignmentTagSelect" onchange="updateTagStyle()" required>
-            <option value="" disabled selected>Velg emne…</option>
-            <option value="growth-mindset">Growth Mindset</option>
-            <option value="psykologiskTrygghet">Psykologisk trygghet</option>
-            <option value="learning">Læring</option>
-            <option value="locusOfControl">Locus of Control</option>
-            <option value="grit">GRIT</option>
+          <label for="tagSelect"><h2>Tema</h2></label>
+          <select onchange="updateTagStyle()" id="assignmentTagSelect" class="input-style" required>
+            <option value="" disabled selected>Velg tema...</option>
+            ${model.data.keyCompetences}
           </select>
         </div>
         <div class="field">
-          <label for="subtagSelect">Subtag </label>
-          <select id="assignmentSubtagSelect" disabled>
-            <option value="" selected>Velg subtag…</option>
+          <label for="subtagSelect"><h2>Under Tema</h2></label>
+          <input id="assignmentSubtagSelect" placeholder="Under Tema…" onchange="updateTagStyle()" class="input-style">
           </select>
         </div>
       </div>
 
-      <!-- Tittel og tekst -->
+      <!-- Oppgavefelt -->
       <div class="field">
-        <label for="titleInput">Tittel</label>
-        <input id="titleInput" type="text" placeholder="Kort, tydelig tittel" required />
-      </div>
-
-      <div class="field">
-        <label for="bodyInput">Oppgave</label>
-        <textarea id="bodyInput" rows="10" placeholder="Skriv oppgaven her…" required></textarea>
+        <label for="bodyInput"><h2>Oppgave</h2></label>
+        <textarea id="bodyInput" class="text-style" rows="10" placeholder="Skriv oppgaven her…" required></textarea>
         <div class="hint">Tips: Bruk punktlister, del opp steg, og legg ved lenker.</div>
       </div>
 
-      <div class="sep"></div>
-
+    <div class="sep"></div>
       <!-- Grupper -->
       <div class="field">
-        <label>Tilgang (grupper)</label>
-        <div class="group-grid" id="groupGrid"></div>
+        <label><h2>Tilgang (grupper)</h2></label>
+        <div class="group-grid" id="groupGrid">
+        ${model.data.groups.map(group => /*HTML*/`
+        <div class="group-checkbox-row">
+          <input type="checkbox" id="group${group.groupID}" name="groups" value="${group.groupID}" class="group-checkbox" />
+          <label for="group${group.groupID}" class="group-label">${group.groupName}</label>
+        </div>
+      `).join('')}
+      <div class="group-checkbox-row">
+        <input type="checkbox" id="selectAllGroups" class="group-checkbox" />
+        <label for="selectAllGroups" class="group-label"><b>Velg alle</b></label>
       </div>
+        </div>
 
       <!-- Handlinger -->
       <div class="actions">
-        <button type="button" id="saveDraftBtn">Lagre kladd</button>
-        <button type="button" class="primary" id="publishBtn">Publiser</button>
+        <button type="button" id="saveDraftBtn" class="primary">Lagre kladd</button>
+        <button type="button" onclick="createAssignment()" class="primary" id="publishBtn">Publiser</button>
       </div>
     </div>
   </div>
-
-    `;
+  `;
   return assignmentHTML;
 };
-

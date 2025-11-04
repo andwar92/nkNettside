@@ -1,68 +1,189 @@
-  :root{
-      --bg:#faf7f5;
-      --card:#fff;
-      --text:#1d1d1f;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --primary: #f44e00;
-      --shadow:0 8px 24px rgba(0,0,0,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
-      line-height:1.45;
-    }
-    .wrap{max-width:960px;margin:32px auto;padding:0 16px}
-    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
-    header h1{font-size:1.75rem;margin:0}
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:14px;
-      box-shadow:var(--shadow);
-      padding:20px;
-    }
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media (max-width:720px){ .row{grid-template-columns:1fr} }
-    .field{margin-bottom:14px}
-    .field label{display:block;font-weight:600;margin-bottom:.4rem}
-    .field .hint{color:var(--muted);font-size:.9rem;margin-top:.25rem}
-    input[type="text"], select, textarea{
-      width:100%;border:1px solid var(--border);border-radius:10px;
-      padding:.65rem .8rem;font-size:1rem;outline:none;background:#fff;
-    }
-    textarea{resize:vertical;min-height:180px}
-    .group-grid{
-      display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-      gap:.35rem .75rem;padding:.25rem 0;
-    }
-    .check{display:flex;align-items:center;gap:.5rem;padding:.4rem .5rem;border-radius:8px}
-    .actions{display:flex;gap:.75rem;justify-content:flex-end;margin-top:.75rem}
-    button{
-      border:none;border-radius:10px;padding:.65rem .9rem;cursor:pointer;background:#f3f4f6
-    }
-    button.primary{background:var(--primary);color:#fff;font-weight:600}
-    button:hover{filter:brightness(.98)}
-    .sep{height:1px;background:var(--border);margin:16px 0}
-    .topbar{
-      display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:12px
-    }
-    .status{font-size:.95rem;color:var(--muted)}
+/* ===========================
+   Assignment page (scoped)
+   =========================== */
 
-/* Ovenfor er css test for AssignmentView!/*
-/* body {
+.assignment-page {
+    padding: 16px;
+}
+
+.box .content {
+ color: white;
+  white-space: pre-wrap;
+  line-height: 1.5;
+  padding: 10px;
+  text-align: left; /* forsikrer venstrejustert tekst */
+  width: 100%; /* sikrer at innholdet fyller boksen */
+}
+
+
+.assignment-page .header-box {
+    margin: 0 0 8px 0;
+    font-family:"Guardian-Bold", sans-serif;
+    color: #f44e00;
+    font-size:35px;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+
+/* Kortet følger samme look & feel som resten:
+   hvitt kort på #fff7f3 med myk skygge og avrunding */
+.assignment-page .card {
+    background: #f44e00;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    /* keep card fluid on small screens but fixed-ish on desktop */
+    width: 100%;
+    max-width: 900px; /* default max width for larger screens */
+    margin: 0 auto; /* center horizontally */
+    box-sizing: border-box;
+}
+
+/* Make card narrower on typical desktop screens if you prefer ~500px */
+@media (min-width: 1024px) {
+    .assignment-page .card {
+        max-width: 900px; 
+    }
+}
+.input-style {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px 12px;
+    font-size: 16px;
+    background: #fff;
+    outline: none;
+    box-sizing: border-box;
+    transition: box-shadow .18s ease, border-color .18s ease;
+}
+/* Grid for topp-raden (Emne/Subtag) */
+.assignment-page .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 400px) {
+    .assignment-page .row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Felt + label */
+.assignment-page .field {
     display: flex;
     flex-direction: column;
-    /* header øverst, resten under
+    gap: 6px;
+    margin: 12px 0;
+}
+
+.assignment-page .field label {
+    font-weight: 600;
+    color: #000000;
+}
+
+/* Inputs: matcher knappestil og fokus fra resten av appen */
+.assignment-page select,
+.assignment-page input[type="text"],
+.assignment-page textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px 12px;
+    font-size: 16px;
+    background: #fff;
+    outline: none;
+    box-sizing: border-box;
+    transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.assignment-page select:focus,
+.assignment-page input[type="text"]:focus,
+.assignment-page textarea:focus {
+    border-color: rgba(9, 105, 218, .6);
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, .15);
+}
+
+/* Disabled select (Subtag) */
+.assignment-page select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Hint-tekst under textarea */
+.assignment-page .hint {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #000000;
+}
+
+/* Separator-linje */
+.assignment-page .sep {
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+    margin: 20px 0;
+}
+.assignment-page .group-checkbox {
+    cursor: pointer;
+}
+/* Gruppe-grid */
+.assignment-page .group-grid {
+    display: grid;
+    /* Use fixed column widths so items don't stretch too much on large screens */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 160px));
+    gap: 10px;
+    justify-content: start;
+}
+
+/* Actions (bruker samme fargepalett som .logout-btn/.publish-btn) */
+.assignment-page .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.assignment-page .actions button {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    background: #eee;
+    color: #222;
+}
+
+.assignment-page .actions .primary,
+.assignment-page #publishBtn {
+    background: #ffffff;
+    color: #f44e00;
+    background: #fff7f3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    
+}
+
+.assignment-page .actions .primary:hover,
+.assignment-page #publishBtn:hover {
+    background: rgb(187, 69, 25);
+}
+
+.assignment-page #saveDraftBtn:hover {
+    background: #e2e2e2;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    background-color: #fff7f3;
+    background-color: #fffefe;
     margin: 0;
-} */
-
-
-/* header tar ikke plass i flex-vekst */
+}
 header.headerbox {
     position: sticky;
     top: 0;
@@ -82,28 +203,22 @@ header.headerbox {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* alltid minst hele høyden på vinduet */
 }
-
-/* .sidebar {
-    box-sizing: border-box;
-    padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-} */
-
-
 .loginbox {
     position: fixed;
-    top: 50%;
+    /* move slightly above true center so the card sits closer to top */
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
+    /* stack form controls vertically and allow children to stretch */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
     padding: 16px;
-    width: 100%;
     pointer-events: auto;
+    width: 360px; /* fixed card width keeps layout predictable */
+    border-radius: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -111,7 +226,7 @@ header.headerbox {
 .logincontainer {
     border: 1px solid rgba(245, 101, 49, 1);
     border-radius: 20px;
-    background-color: rgb(245, 101, 49);
+    background-color: #f44e00;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
     padding: 1.5rem;
     width: fit-content;
@@ -143,6 +258,21 @@ header.headerbox {
     padding: 8px 14px;
     font-weight: bold;
     cursor: pointer;
+}
+.loginn-btn {
+    margin-top: 20px;
+    margin-left: auto;
+    background: #f44e00;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    height: 40px;
+    width: 35%;
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Inter-Black", sans-serif;
 }
 
 .publish-btn {
@@ -263,35 +393,39 @@ header.headerbox {
     display: grid;
     grid-template-columns: 1fr auto auto;
     align-items: start;
-    /* 👈 viktig */
     gap: 10px;
 }
 
 .box {
     font-size: 1.5rem;
     position: relative;
-    width: 50%;
-    height: 20em;
+    width: 100%;
+    max-width: 700px;
+    min-height: 20em;
     background: #f44e00;
     border-radius: 12px;
-    padding: 20px;
+    padding: 14px 20px; 
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
-/* .card {
-    font-size: 1.5rem;
-    position: relative;
-    width: 50%;
-    height: 20em;
-    background: #f44e00;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
-} */
+@media (min-width: 1024px) {
+    .box {
+        max-width: 700px; 
+    }
+}
 
 .box:hover {
     background: rgb(187, 69, 25);
 }
-
+.label {
+    margin-top: 0;
+    padding: 0;
+    font-family: "Inter-Black", sans-serif;
+    font-size: 18px;
+    color: #000000;
+    display: block;
+    line-height: 1;
+    margin: 10px 0;
+}
 .gruppebox {
     position: absolute;
     bottom: -15px;
@@ -317,7 +451,64 @@ header.headerbox {
     font-weight: bold;
     font-size: 0.9rem;
 }
+.loggin-title {
+    position: relative;
+    font-family:"Guardian-Bold", sans-serif;
+    color: #f44e00;
+    font-size: 60px;
+    margin-bottom:10px;
+    margin-right: auto;
+}
+.glemt-passord{
+    position: relative;
+    background-color: #ffffff;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+label.required::after {
+  content: " *";
+  color: #f44e00;
+  font-weight: bold;
+  margin-left: 2px;
+}
+.loginn-box {
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    /* reduce big horizontal padding so typed text starts at the left */
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+}
 
+/* make form controls stack and have reasonable spacing */
+.loginbox form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* remember-me checkbox row placed under password, aligned left */
+.remember-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* keep it aligned with inputs */
+    width: 100%;
+}
+.remember-checkbox {
+    width: 20px;
+    height: 20px;
+}
+.remember-label {
+    font-family:"Guardian-Bold", sans-serif;
+    font-size: 16px;
+    color: #333;
+}
 .tag-box {
     position: absolute;
     bottom: 5px;
@@ -459,119 +650,158 @@ header.headerbox {
     cursor: pointer;
 }
 
-
-
-
-
-
-
-/*Chat*/
-/* .chatContainer {
-    display: grid;
-    grid-template-columns: 200px auto;
-    height: calc(100vh - 100px);
-    border-top: 1px solid #000;
-    background: gray;
-    border-radius: 12px;
+.chatContainer {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  min-height: 500px;
+  overflow: hidden;
 }
 
 .friendList {
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    background: rgba(245, 101, 49, 1);
-}
-
-.friendList button {
-    font-weight: bold;
-    margin-left: 1%;
-    cursor: pointer;
-    background-color: rgba(245, 101, 49, 1);
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: none;
-}
-
-.chat {
-    background: blue;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #000;
-    background: #f5f5f5;
-    padding: 10px;
-}
-
-.chatInput {}
-
-.chatInput textarea {
-    flex: 1;
-    height: 60px;
-    padding: 8px;
-    font-size: 14px;
-    resize: none;
-    border-radius: 12px;
-} */
-
-
-.text-style {
-    width: 400px;
-    height: 450px;
-    resize: none;
-    overflow-y: hidden;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    padding: 8px;
-    transition: height 0.6s ease;
-}
-
-.textbox:focus {
-    outline: none;
-    border-color: rgba(9, 105, 218, .6);
-    box-shadow: 0 0 0 3px rgba(9, 105, 218, .15);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* .headerbox {
-    width: 1px;
-    height: 5px;
-    } */
-
-/* header {
-        position: fixed;
-        top: 1%;
-        left: 1%;
-        } */
-
-
-
-/* body {
-          width: 100%;
-            margin: 0 auto;
-            height: 100%;
-  background-color: black;
-}
-
-
-
-.container {
-  margin-top: 50px;
+  background: #f44e00;
+  color: #fff;
+  min-width: 160px;
+  max-width: 200px;
+  padding: 32px 0 32px 0;
   display: flex;
-  margin: 0 auto;
   flex-direction: column;
-  justify-items: center;
-  justify-self: center;
-  align-items: center;
-  align-content: flex-start;
-} */
+  align-items: stretch;
+  gap: 8px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+  border-right: 1px solid #eee;
+}
+.friendList button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.friendList button.active,
+.friendList button:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.chatPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 32px 0 32px;
+  background: #fff;
+}
+
+.activePersonTag {
+  background: #f44e00;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  min-height: 200px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 12px 18px;
+  border-radius: 18px;
+  font-size: 1rem;
+  background: #f7f7f7;
+  color: #222;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  align-self: flex-start;
+}
+.message.teacher {
+  background: #f44e00;
+  color: #fff;
+  align-self: flex-end;
+}
+.message.student {
+  background: #fff4e6;
+  color: #222;
+  align-self: flex-start;
+}
+
+.chatInput {
+  display: flex;
+  gap: 8px;
+  padding: 0 0 32px 0;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+.chatInput textarea {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 12px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 40px;
+  max-height: 120px;
+}
+.chatInput button {
+  background: #f44e00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 24px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: background 0.2s;
+}
+.chatInput button:hover {
+  background: rgb(187, 69, 25);
+}
+
+@media (max-width: 700px) {
+  .chatContainer {
+    flex-direction: column;
+    max-width: 100%;
+    min-height: 400px;
+  }
+  .friendList {
+    flex-direction: row;
+    min-width: 0;
+    max-width: 100%;
+    padding: 0;
+    box-shadow: none;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+  .friendList button {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+  }
+  .chatPanel {
+    padding: 16px;
+  }
+  .chatInput {
+    padding: 0 0 16px 0;
+  }
+}
+
+/* ...existing code... */
