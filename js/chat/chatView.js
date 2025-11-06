@@ -2,16 +2,16 @@ function chatView() {
     let chatHTML = /*HTML*/`
 <div class="chatContainer">
   <div class="friendList">
-    <button class="active">Lærer</button>
+    <button class="active">Kari</button>
     <button>Student 1</button>
     <button>Student 2</button>
     <button>Student 3</button>
   </div>
   <div class="chatPanel">
-    <div class="activePersonTag">Lærer</div>
+   <div class="chatHeader">Chat med Kari</div>
     <div class="chatMessages">
-      <div class="message teacher">Hei, velkommen!</div>
-      <div class="message student">Hei!</div>
+      <div class="message teacher">${model.app.currentUserName}: Hei, velkommen!</div>
+      <div class="message student">Deg: Hei!</div>
       <!-- flere meldinger -->
     </div>
     <div class="chatInput">

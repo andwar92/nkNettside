@@ -28,7 +28,9 @@ function updateView() {
       if (page === 'assignmentView') {
         titleTag();
     }
-
+    if (page =! 'chatView') {
+        
+    }
     initChat();
 }
 function setPage(nameOfPage) {

@@ -1,3 +1,11 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* hindrer horisontal scroll */
+}
+
 /* ===========================
    Assignment page (scoped)
    =========================== */
@@ -7,20 +15,27 @@
 }
 
 .box .content {
- color: white;
-  white-space: pre-wrap;
-  line-height: 1.5;
-  padding: 10px;
-  text-align: left; /* forsikrer venstrejustert tekst */
-  width: 100%; /* sikrer at innholdet fyller boksen */
+    color: white;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    padding: 10px;
+    text-align: left;
+    /* forsikrer venstrejustert tekst */
+    width: 100%;
+    /* sikrer at innholdet fyller boksen */
 }
 
-
+.assignment-date {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    margin-right: 10px;
+}
 .assignment-page .header-box {
     margin: 0 0 8px 0;
-    font-family:"Guardian-Bold", sans-serif;
+    font-family: "Guardian-Bold", sans-serif;
     color: #f44e00;
-    font-size:35px;
+    font-size: 35px;
     line-height: 1.2;
     color: #ffffff;
 }
@@ -30,23 +45,26 @@
    hvitt kort på #fff7f3 med myk skygge og avrunding */
 .assignment-page .card {
     background: #f44e00;
-    border: 1px solid rgba(0,0,0,0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 12px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.12);
     padding: 20px;
     /* keep card fluid on small screens but fixed-ish on desktop */
     width: 100%;
-    max-width: 900px; /* default max width for larger screens */
-    margin: 0 auto; /* center horizontally */
+    max-width: 900px;
+    /* default max width for larger screens */
+    margin: 0 auto;
+    /* center horizontally */
     box-sizing: border-box;
 }
 
 /* Make card narrower on typical desktop screens if you prefer ~500px */
 @media (min-width: 1024px) {
     .assignment-page .card {
-        max-width: 900px; 
+        max-width: 900px;
     }
 }
+
 .input-style {
     width: 100%;
     border: 1px solid #ddd;
@@ -58,6 +76,7 @@
     box-sizing: border-box;
     transition: box-shadow .18s ease, border-color .18s ease;
 }
+
 /* Grid for topp-raden (Emne/Subtag) */
 .assignment-page .row {
     display: grid;
@@ -123,12 +142,14 @@
 /* Separator-linje */
 .assignment-page .sep {
     height: 1px;
-    background: rgba(0,0,0,0.08);
+    background: rgba(0, 0, 0, 0.08);
     margin: 20px 0;
 }
+
 .assignment-page .group-checkbox {
     cursor: pointer;
 }
+
 /* Gruppe-grid */
 .assignment-page .group-grid {
     display: grid;
@@ -152,7 +173,7 @@
     padding: 10px 14px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     background: #eee;
     color: #222;
 }
@@ -164,7 +185,7 @@
     background: #fff7f3;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
-    
+
 }
 
 .assignment-page .actions .primary:hover,
@@ -184,6 +205,7 @@ body {
     background-color: #fffefe;
     margin: 0;
 }
+
 header.headerbox {
     position: sticky;
     top: 0;
@@ -204,7 +226,9 @@ header.headerbox {
     flex-direction: column;
     min-height: 100vh;
 }
+
 .loginbox {
+    background-color: #f44e00;
     position: fixed;
     /* move slightly above true center so the card sits closer to top */
     top: 42%;
@@ -216,7 +240,8 @@ header.headerbox {
     align-items: stretch;
     padding: 16px;
     pointer-events: auto;
-    width: 360px; /* fixed card width keeps layout predictable */
+    width: 360px;
+    /* fixed card width keeps layout predictable */
     border-radius: 20px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
@@ -259,6 +284,7 @@ header.headerbox {
     font-weight: bold;
     cursor: pointer;
 }
+
 .loginn-btn {
     margin-top: 20px;
     margin-left: auto;
@@ -321,15 +347,16 @@ header.headerbox {
 
 .sidebar {
     height: 100%;
-    width: 0;
+    width: 200px;
     position: fixed;
     top: 150px;
     left: 0;
     background-color: #f44e00;
     overflow-x: hidden;
-    transition: 0.3s;
+    transition: margin-left 0.3s ease;
     padding-top: 60px;
     box-shadow: 3px 0 8px rgba(0, 0, 0, 0.2);
+    margin-left: -200px;
 }
 
 .sidebar a {
@@ -338,12 +365,10 @@ header.headerbox {
     font-size: 18px;
     color: white;
     display: block;
-    transition: 0.2s;
-
 }
 
 .sidebar.active {
-    width: 200px;
+    margin-left: 0px;
 
 }
 
@@ -354,7 +379,8 @@ header.headerbox {
 .main-content {
     flex: 1;
     padding: 16px;
-    transition: margin-left 0.3s;
+    transition: margin-left 0.3s ease;
+
 }
 
 .main-content.shift {
@@ -363,19 +389,19 @@ header.headerbox {
 
 .main-footer {
     height: 30px;
-    position: relative;
+    
     bottom: 0;
     width: 100%;
     background-color: #fff7f3;
     color: #222;
     box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
     padding: 0px 15px 20px;
+    transition: margin-left 0.3s ease;
 }
 
 
 .main-footer.shift {
     margin-left: 200px;
-    transition: 0.3s;
 }
 
 /*Container bokser*/
@@ -404,34 +430,37 @@ header.headerbox {
     min-height: 20em;
     background: #f44e00;
     border-radius: 12px;
-    padding: 14px 20px; 
+    padding: 14px 20px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
+
 @media (min-width: 1024px) {
     .box {
-        max-width: 700px; 
+        max-width: 700px;
     }
 }
 
 .box:hover {
     background: rgb(187, 69, 25);
 }
+
 .label {
     margin-top: 0;
     padding: 0;
     font-family: "Inter-Black", sans-serif;
     font-size: 18px;
-    color: #000000;
+    color: #ffffff;
     display: block;
     line-height: 1;
     margin: 10px 0;
 }
+
 .gruppebox {
     position: absolute;
     bottom: -15px;
     left: 15px;
     background: #fff4ac;
-    color:#c0ad36;
+    color: #c0ad36;
     border-radius: 12px;
     padding: 4px 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -443,37 +472,41 @@ header.headerbox {
     position: absolute;
     bottom: -15px;
     left: 20px;
-    background:#a0f0a0;
-    color:#1ca71c;
+    background: #a0f0a0;
+    color: #1ca71c;
     border-radius: 12px;
     padding: 10px 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     font-weight: bold;
     font-size: 0.9rem;
 }
+
 .loggin-title {
     position: relative;
-    font-family:"Guardian-Bold", sans-serif;
-    color: #f44e00;
+    font-family: "Guardian-Bold", sans-serif;
+    color: #ffffff;
     font-size: 60px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     margin-right: auto;
 }
-.glemt-passord{
+
+.glemt-passord {
     position: relative;
-    background-color: #ffffff;
+    background-color: #f44e00;
     margin-top: 30px;
     display: flex;
     justify-content: flex-end;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
 label.required::after {
-  content: " *";
-  color: #f44e00;
-  font-weight: bold;
-  margin-left: 2px;
+    content: " *";
+    color: #000000;
+    font-weight: bold;
+    margin-left: 2px;
 }
+
 .loginn-box {
     background: rgb(255, 255, 255);
     border-radius: 8px;
@@ -500,15 +533,18 @@ label.required::after {
     /* keep it aligned with inputs */
     width: 100%;
 }
+
 .remember-checkbox {
     width: 20px;
     height: 20px;
 }
+
 .remember-label {
-    font-family:"Guardian-Bold", sans-serif;
+    font-family: "Guardian-Bold", sans-serif;
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
 }
+
 .tag-box {
     position: absolute;
     bottom: 5px;
@@ -651,157 +687,159 @@ label.required::after {
 }
 
 .chatContainer {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  min-height: 500px;
-  overflow: hidden;
+    background: #fff;
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
 }
 
 .friendList {
-  background: #f44e00;
-  color: #fff;
-  min-width: 160px;
-  max-width: 200px;
-  padding: 32px 0 32px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 8px;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
-  border-right: 1px solid #eee;
+    background: #f44e00;
+    color: #fff;
+    width: 200px;
+    height: 79vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
+
 .friendList button {
-  background: transparent;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 18px;
-  font-weight: 600;
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.2s;
+    background: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s;
 }
+
 .friendList button.active,
 .friendList button:hover {
-  background: rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .chatPanel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 32px 32px 0 32px;
-  background: #fff;
+
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: relative;
+    width: 100%;
+    max-width: none;
+    border:transparent 5px #f44e00;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chatHeader {
+    background: #d63e00;
+    border-top-right-radius: 10px;
+    color: #fff;
+    padding: 18px 32px 18px 0;
+    font-weight: bold;
+    font-size: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chatPanel .activePersonTag {
+    margin-top: 18px;
 }
 
 .activePersonTag {
-  background: #f44e00;
-  color: #fff;
-  border-radius: 8px;
-  padding: 8px 18px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: 18px;
-  display: inline-block;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    width: 100%;
+    background: #f44e00;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .chatMessages {
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 16px;
-  min-height: 200px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
 .message {
-  max-width: 70%;
-  padding: 12px 18px;
-  border-radius: 18px;
-  font-size: 1rem;
-  background: #f7f7f7;
-  color: #222;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  align-self: flex-start;
+    max-width: 70%;
+    padding: 12px 18px;
+    margin-left: 10px;
+    border-radius: 18px;
+    font-size: 1rem;
+    background: #f7f7f7;
+    color: #222;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    align-self: flex-start;
 }
 .message.teacher {
-  background: #f44e00;
-  color: #fff;
-  align-self: flex-end;
+    background: #f44e00;
+    color: #fff;
+    align-self: flex-start;
 }
+
 .message.student {
-  background: #fff4e6;
-  color: #222;
-  align-self: flex-start;
+    background: #fff4e6;
+    color: #222;
+    align-self: flex-start;
 }
 
 .chatInput {
-  display: flex;
-  gap: 8px;
-  padding: 0 0 32px 0;
-  background: #fff;
-  border-top: 1px solid #eee;
-}
-.chatInput textarea {
-  flex: 1;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  padding: 12px;
-  font-size: 1rem;
-  resize: vertical;
-  min-height: 40px;
-  max-height: 120px;
-}
-.chatInput button {
-  background: #f44e00;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 0 24px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: background 0.2s;
-}
-.chatInput button:hover {
-  background: rgb(187, 69, 25);
+    display: flex;
+    gap: 8px;
+    padding: 12px 0 0 0;
+    background: #fff;
+    border-bottom:solid #f44e00;
+    border-bottom-right-radius: 10px;
 }
 
-@media (max-width: 700px) {
-  .chatContainer {
-    flex-direction: column;
-    max-width: 100%;
-    min-height: 400px;
-  }
-  .friendList {
-    flex-direction: row;
-    min-width: 0;
-    max-width: 100%;
-    padding: 0;
-    box-shadow: none;
-    border-right: none;
-    border-bottom: 1px solid #eee;
-  }
-  .friendList button {
+.chatInput textarea {
     flex: 1;
-    text-align: center;
-    padding: 12px 0;
-  }
-  .chatPanel {
-    padding: 16px;
-  }
-  .chatInput {
-    padding: 0 0 16px 0;
-  }
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 12px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 40px;
+    max-height: 120px;
 }
+
+.chatInput button {
+    background: #f44e00;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0 24px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s;
+}
+
+.chatInput button:hover {
+    background: rgb(187, 69, 25);
+}
+
+
 
 /* ...existing code... */

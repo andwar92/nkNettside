@@ -13,6 +13,7 @@ Det er også veldig ulik og forskjellig hvordan vi reagerer, tenker og oppfører
 Hvor godt kjenner du deg selv?
    - hvordan kjenner du at du er stressa
    - hvordan du tror du kan oppleves når du er stressa
+   <div class="assignment-date">05.011.2025</div>
 
          </div>
          <div class="tagBox">Stress</div>

@@ -1,7 +1,8 @@
 const model = {
     app: {
-        currentPage: 'assignmentView',
+        currentPage: 'chatView',
         currentUserId: 0,
+        currentUserName:'Admin',
         previousPage: [],
 
     },
