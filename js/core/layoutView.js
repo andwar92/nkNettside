@@ -12,7 +12,7 @@ function layoutView(contentHTML) {
         <div class="layout">
         <header class="headerbox">
         <div class="logocontainer">
-        <img  onclick="setPage('dashboardView')" src="img/logo.png" alt="Logo"/>
+        <img  onclick="setPage('dashboardView')" src="img/logo.png" alt="Logo" id="logo"/>
         <button class="open-btn" onclick="toggleSidebar()">☰ Meny</button>
         </div>
         <button class="logout-btn" onclick="setPage('loginView')">Logout</button>

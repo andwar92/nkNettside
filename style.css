@@ -135,6 +135,16 @@ header.headerbox {
     max-height: 100px;
 }
 
+#logo {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#logo:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+
 
 
 /*Sidebar*/

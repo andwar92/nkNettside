@@ -1,4 +1,6 @@
 function dashboardView() {
+   const latestAssignment = model.data.assignmentPage[model.data.assignmentPage.length - 1];
+   
    let dashboardHTML = /*HTML*/`
    <div class="container">
    <div class="box">
@@ -14,14 +16,14 @@ Hvor godt kjenner du deg selv?
    - hvordan kjenner du at du er stressa
    - hvordan du tror du kan oppleves når du er stressa
    <div class="assignment-date">05.011.2025</div>
-
          </div>
          <div class="tagBox">Stress</div>
          </div>
       <div class="box">
-         <h1 class="title"style="color:#fff4ac">${model.data.assignmentPage.title}</h1>
-         <div class="content">${model.data.assignmentPage.description}</div>
-         <div class="gruppebox">${model.data.assignmentPage.subject}</div>
+         <h1 id="assignmentTagSelect" onchange="updateTagStyle()" class="title"style="color:#fff4ac">${latestAssignment.title}</h1>
+         <div class="content">${latestAssignment.description}</div>
+         <div class="gruppebox">${latestAssignment.subject}</div>
+         <div class="assignment-date">${latestAssignment.date}</div>
       </div>
    </div>
     `;

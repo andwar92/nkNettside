@@ -19,16 +19,12 @@ function assignmentView() {
           </select>
         </div>
       </div>
-
-      <!-- Oppgavefelt -->
       <div class="field">
         <label for="bodyInput"><h2>Oppgave</h2></label>
-        <textarea onchage ="descriptionInput()" id="bodyInput" class="text-style" rows="10" placeholder="Skriv oppgaven her…" required></textarea>
+        <textarea id="bodyInput" onchange="descriptionInput(this.value)" class="text-style" rows="10" placeholder="Skriv oppgaven her…" required></textarea>
         <div class="hint">Tips: Bruk punktlister, del opp steg, og legg ved lenker.</div>
       </div>
-
     <div class="sep"></div>
-      <!-- Grupper -->
       <div class="field">
         <label><h2>Tilgang (grupper)</h2></label>
         <div class="group-grid" id="groupGrid">
@@ -43,8 +39,6 @@ function assignmentView() {
         <label for="selectAllGroups" class="group-label"><b>Velg alle</b></label>
       </div>
         </div>
-
-      <!-- Handlinger -->
       <div class="actions">
         <button type="button" id="saveDraftBtn" class="primary">Lagre kladd</button>
         <button type="button" onclick="createAssignment()" class="primary" id="publishBtn">Publiser</button>
