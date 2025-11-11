@@ -1,6 +1,6 @@
 const model = {
     app: {
-        currentPage: 'chatView',
+        currentPage: 'assignmentView',
         currentUserId: 0,
         currentUserName:'Admin',
         previousPage: [],
@@ -67,16 +67,18 @@ const model = {
                 isAdmin: true,
             },
         ],
-        assignmentPage: {
-            assignmentID: 0,
-            title: 'Growth Mindset',
-            description: 'Oppgaveinnhold om Growth Mindset',
-            subject: 'Growth Mindset',
-            tag: 'Fixed vs Growth Mindset',
-            groupID: [0, 1],
-            date: '10/17/2025',
-            attachment: 'growth_mindset.pdf',
-        },
+        assignmentPage: [
+            
+            {
+                assignmentID: 0,
+                title: 'Growth Mindset',
+                description: 'Oppgaveinnhold om Growth Mindset',
+                subject: 'Fixed vs Growth Mindset',
+                groupID: [0, 1],
+                date: '10/17/2025',
+                attachment: 'growth_mindset.pdf',
+            }
+        ],
         answerPage: {
             userID: 0,
             assignmentID: 0,

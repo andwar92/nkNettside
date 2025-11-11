@@ -3,198 +3,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* hindrer horisontal scroll */
-}
-
-/* ===========================
-   Assignment page (scoped)
-   =========================== */
-
-.assignment-page {
-    padding: 16px;
-}
-
-.box .content {
-    color: white;
-    white-space: pre-wrap;
-    line-height: 1.5;
-    padding: 10px;
-    text-align: left;
-    /* forsikrer venstrejustert tekst */
-    width: 100%;
-    /* sikrer at innholdet fyller boksen */
-}
-
-.assignment-date {
-    position: absolute;
-    bottom: 10px;
-    right: 0;
-    margin-right: 10px;
-}
-.assignment-page .header-box {
-    margin: 0 0 8px 0;
-    font-family: "Guardian-Bold", sans-serif;
-    color: #f44e00;
-    font-size: 35px;
-    line-height: 1.2;
-    color: #ffffff;
-}
-
-
-/* Kortet følger samme look & feel som resten:
-   hvitt kort på #fff7f3 med myk skygge og avrunding */
-.assignment-page .card {
-    background: #f44e00;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 12px;
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.12);
-    padding: 20px;
-    /* keep card fluid on small screens but fixed-ish on desktop */
-    width: 100%;
-    max-width: 900px;
-    /* default max width for larger screens */
-    margin: 0 auto;
-    /* center horizontally */
-    box-sizing: border-box;
-}
-
-/* Make card narrower on typical desktop screens if you prefer ~500px */
-@media (min-width: 1024px) {
-    .assignment-page .card {
-        max-width: 900px;
-    }
-}
-
-.input-style {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 12px 12px;
-    font-size: 16px;
-    background: #fff;
-    outline: none;
-    box-sizing: border-box;
-    transition: box-shadow .18s ease, border-color .18s ease;
-}
-
-/* Grid for topp-raden (Emne/Subtag) */
-.assignment-page .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 12px;
-}
-
-@media (max-width: 400px) {
-    .assignment-page .row {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Felt + label */
-.assignment-page .field {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin: 12px 0;
-}
-
-.assignment-page .field label {
-    font-weight: 600;
-    color: #000000;
-}
-
-/* Inputs: matcher knappestil og fokus fra resten av appen */
-.assignment-page select,
-.assignment-page input[type="text"],
-.assignment-page textarea {
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 12px 12px;
-    font-size: 16px;
-    background: #fff;
-    outline: none;
-    box-sizing: border-box;
-    transition: box-shadow .18s ease, border-color .18s ease;
-}
-
-.assignment-page select:focus,
-.assignment-page input[type="text"]:focus,
-.assignment-page textarea:focus {
-    border-color: rgba(9, 105, 218, .6);
-    box-shadow: 0 0 0 3px rgba(9, 105, 218, .15);
-}
-
-/* Disabled select (Subtag) */
-.assignment-page select:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* Hint-tekst under textarea */
-.assignment-page .hint {
-    margin-top: 8px;
-    font-size: 16px;
-    color: #000000;
-}
-
-/* Separator-linje */
-.assignment-page .sep {
-    height: 1px;
-    background: rgba(0, 0, 0, 0.08);
-    margin: 20px 0;
-}
-
-.assignment-page .group-checkbox {
-    cursor: pointer;
-}
-
-/* Gruppe-grid */
-.assignment-page .group-grid {
-    display: grid;
-    /* Use fixed column widths so items don't stretch too much on large screens */
-    grid-template-columns: repeat(auto-fit, minmax(160px, 160px));
-    gap: 10px;
-    justify-content: start;
-}
-
-/* Actions (bruker samme fargepalett som .logout-btn/.publish-btn) */
-.assignment-page .actions {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-    margin-top: 12px;
-}
-
-.assignment-page .actions button {
-    border: none;
-    border-radius: 6px;
-    padding: 10px 14px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    background: #eee;
-    color: #222;
-}
-
-.assignment-page .actions .primary,
-.assignment-page #publishBtn {
-    background: #ffffff;
-    color: #f44e00;
-    background: #fff7f3;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-
-}
-
-.assignment-page .actions .primary:hover,
-.assignment-page #publishBtn:hover {
-    background: rgb(187, 69, 25);
-}
-
-.assignment-page #saveDraftBtn:hover {
-    background: #e2e2e2;
+    overflow-x: hidden;
 }
 
 
@@ -230,24 +39,21 @@ header.headerbox {
 .loginbox {
     background-color: #f44e00;
     position: fixed;
-    /* move slightly above true center so the card sits closer to top */
     top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* stack form controls vertically and allow children to stretch */
     display: flex;
     flex-direction: column;
     align-items: stretch;
     padding: 16px;
     pointer-events: auto;
     width: 360px;
-    /* fixed card width keeps layout predictable */
     border-radius: 20px;
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
 }
 
 
-/* selve login-kortet */
+/* login-kortet */
 .logincontainer {
     border: 1px solid rgba(245, 101, 49, 1);
     border-radius: 20px;
@@ -329,6 +135,8 @@ header.headerbox {
     max-height: 100px;
 }
 
+
+
 /*Sidebar*/
 .open-btn {
     font-weight: bold;
@@ -369,7 +177,6 @@ header.headerbox {
 
 .sidebar.active {
     margin-left: 0px;
-
 }
 
 .sidebar a:hover {
@@ -380,7 +187,6 @@ header.headerbox {
     flex: 1;
     padding: 16px;
     transition: margin-left 0.3s ease;
-
 }
 
 .main-content.shift {
@@ -389,7 +195,6 @@ header.headerbox {
 
 .main-footer {
     height: 30px;
-    
     bottom: 0;
     width: 100%;
     background-color: #fff7f3;
@@ -404,8 +209,8 @@ header.headerbox {
     margin-left: 200px;
 }
 
-/*Container bokser*/
 
+/*Container bokser*/
 .container {
     color: white;
     display: flex;
@@ -510,14 +315,12 @@ label.required::after {
 .loginn-box {
     background: rgb(255, 255, 255);
     border-radius: 8px;
-    /* reduce big horizontal padding so typed text starts at the left */
     padding: 8px 12px;
     font-size: 0.9rem;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* make form controls stack and have reasonable spacing */
 .loginbox form {
     display: flex;
     flex-direction: column;
@@ -525,12 +328,10 @@ label.required::after {
     width: 100%;
 }
 
-/* remember-me checkbox row placed under password, aligned left */
 .remember-row {
     display: flex;
     align-items: center;
     gap: 8px;
-    /* keep it aligned with inputs */
     width: 100%;
 }
 
@@ -729,7 +530,6 @@ label.required::after {
 }
 
 .chatPanel {
-
     display: flex;
     flex-direction: column;
     background: #fff;
@@ -840,6 +640,181 @@ label.required::after {
     background: rgb(187, 69, 25);
 }
 
+/* ===========================
+   Assignment page (scoped)
+   =========================== */
+
+.assignment-page {
+    padding: 16px;
+}
+
+.box .content {
+    color: white;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.assignment-date {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    margin-right: 10px;
+}
+.assignment-page .header-box {
+    margin: 0 0 8px 0;
+    font-family: "Guardian-Bold", sans-serif;
+    color: #f44e00;
+    font-size: 35px;
+    line-height: 1.2;
+    color: #ffffff;
+}
 
 
-/* ...existing code... */
+.assignment-page .card {
+    background: #f44e00;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+    .assignment-page .card {
+        max-width: 900px;
+    }
+}
+
+.input-style {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px 12px;
+    font-size: 16px;
+    background: #fff;
+    outline: none;
+    box-sizing: border-box;
+    transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+
+.assignment-page .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 400px) {
+    .assignment-page .row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.assignment-page .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0;
+}
+
+.assignment-page .field label {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+
+.assignment-page select,
+.assignment-page input[type="text"],
+.assignment-page textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px 12px;
+    font-size: 16px;
+    background: #fff;
+    outline: none;
+    box-sizing: border-box;
+    transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+.assignment-page select:focus,
+.assignment-page input[type="text"]:focus,
+.assignment-page textarea:focus {
+    border-color: rgba(9, 105, 218, .6);
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, .15);
+}
+
+
+.assignment-page select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+.assignment-page .hint {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+
+.assignment-page .sep {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08);
+    margin: 20px 0;
+}
+
+.assignment-page .group-checkbox {
+    cursor: pointer;
+}
+
+.assignment-page .group-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 160px));
+    gap: 10px;
+    justify-content: start;
+}
+
+.assignment-page .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.assignment-page .actions button {
+    border: none;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background: #eee;
+    color: #222;
+}
+
+.assignment-page .actions .primary,
+.assignment-page #publishBtn {
+    background: #ffffff;
+    color: #f44e00;
+    background: #fff7f3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+
+}
+
+.assignment-page .actions .primary:hover,
+.assignment-page #publishBtn:hover {
+    background: rgb(187, 69, 25);
+}
+
+.assignment-page #saveDraftBtn:hover {
+    background: #e2e2e2;
+}

@@ -21,7 +21,7 @@ Hvor godt kjenner du deg selv?
       <div class="box">
          <h1 class="title"style="color:#fff4ac">${model.data.assignmentPage.title}</h1>
          <div class="content">${model.data.assignmentPage.description}</div>
-         <div class="gruppebox">${model.data.assignmentPage.tag}</div>
+         <div class="gruppebox">${model.data.assignmentPage.subject}</div>
       </div>
    </div>
     `;

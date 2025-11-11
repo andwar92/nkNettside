@@ -10,13 +10,13 @@ function initChat() {
     const chatTitle = document.getElementById("chatTitle");
     const newGroupBtn = document.getElementById("newGroupBtn");
 
-    // Hvis ikke tilstede, gjør ingenting (sikrer at init kan kalles fra ulike views)
+
     if (!toggleChat || !chatPopup || !userSelect || !messagesDiv) {
       console.warn("initChat: chat-elementer ikke funnet i DOM. Init avbrutt.");
       return;
     }
 
-    // Fjern event listeners fra forrige init (unngå duplikater)
+
     toggleChat.onclick = null;
     closeBtn.onclick = null;
     userSelect.onchange = null;
@@ -24,12 +24,12 @@ function initChat() {
     sendBtn.onclick = null;
     input.onkeydown = null;
 
-    // Hent lagret data eller fallback
+
     let chatList = JSON.parse(localStorage.getItem("chatList")) || ["Kari", "Pål", "Ola"];
     const chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || {};
     let currentChat = localStorage.getItem("currentChat") || chatList[0];
 
-    // Sørg for at currentChat er gyldig
+
     if (!chatList.includes(currentChat)) currentChat = chatList[0];
 
     function persist() {
@@ -49,11 +49,10 @@ function initChat() {
 
     renderSelect();
 
-    // Toggle åpne/lukke (bruk flex hvis CSS forventer flex)
+    // Toggle åpne/lukke
     toggleChat.onclick = () => {
       const isOpen = chatPopup.style.display === "flex" || getComputedStyle(chatPopup).display === "flex";
       chatPopup.style.display = isOpen ? "none" : "flex";
-      // Oppdater scroll når vi åpner
       if (!isOpen) messagesDiv.scrollTop = messagesDiv.scrollHeight;
     };
 
@@ -118,15 +117,11 @@ function initChat() {
         div.className = "msg " + (msg.sender === "me" ? "me" : "other");
         messagesDiv.appendChild(div);
       });
-      // scroll to bottom
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
-    // Sett display til none ved init (valgfritt)
     if (!chatPopup.style.display) chatPopup.style.display = "none";
 
-    // debug-log
-    // console.log("initChat: ferdig. chatList:", chatList, "currentChat:", currentChat);
   } catch (err) {
     console.error("initChat error:", err);
   }

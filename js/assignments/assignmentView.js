@@ -8,8 +8,8 @@ function assignmentView() {
       <div class="row">
         <div class="field">
           <label for="tagSelect"><h2>Tema</h2></label>
-          <select onchange="updateTagStyle()" id="assignmentTagSelect" class="input-style" required>
-            <option value="" disabled selected>Velg tema...</option>
+          <select  id="assignmentTagSelect" class="input-style" required>
+            <option value="" disabled selected onchange="updateTitle(this.value)">Velg tema...</option>
             ${model.data.keyCompetences}
           </select>
         </div>
@@ -23,7 +23,7 @@ function assignmentView() {
       <!-- Oppgavefelt -->
       <div class="field">
         <label for="bodyInput"><h2>Oppgave</h2></label>
-        <textarea id="bodyInput" class="text-style" rows="10" placeholder="Skriv oppgaven her…" required></textarea>
+        <textarea onchage ="descriptionInput()" id="bodyInput" class="text-style" rows="10" placeholder="Skriv oppgaven her…" required></textarea>
         <div class="hint">Tips: Bruk punktlister, del opp steg, og legg ved lenker.</div>
       </div>
 
