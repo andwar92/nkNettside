@@ -12,7 +12,6 @@ function chatView() {
     <div class="chatMessages">
       <div class="message teacher">${model.app.currentUserName}: Hei, velkommen!</div>
       <div class="message student">Deg: Hei!</div>
-      <!-- flere meldinger -->
     </div>
     <div class="chatInput">
       <textarea placeholder="Skriv melding..."></textarea>

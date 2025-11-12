@@ -20,9 +20,9 @@ Hvor godt kjenner du deg selv?
          <div class="tagBox">Stress</div>
          </div>
       <div class="box">
-         <h1 id="assignmentTagSelect" onchange="updateTagStyle()" class="title"style="color:#fff4ac">${latestAssignment.title}</h1>
+         <h1 class="title">${latestAssignment.title}</h1>
          <div class="content">${latestAssignment.description}</div>
-         <div class="gruppebox">${latestAssignment.subject}</div>
+         <div class="tagBox">${latestAssignment.subject}</div>
          <div class="assignment-date">${latestAssignment.date}</div>
       </div>
    </div>

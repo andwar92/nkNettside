@@ -4,7 +4,6 @@ function assignmentView() {
   
   <div class="card">
   <header><h1 class="header-box">Ny oppgave</h1></header>
-      <!-- Toppvalg: Tag/Subtag -->
       <div class="row">
         <div class="field">
           <label for="tagSelect"><h2>Tema</h2></label>
